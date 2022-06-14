@@ -1,4 +1,4 @@
-# file transfer server
+# File transfer server
 A simple bash script to easily browse file, generate url, and start a python server to transfer files
 
 # Getting Started
