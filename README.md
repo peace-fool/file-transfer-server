@@ -5,7 +5,7 @@ A simple bash script to easily browse file, generate url, and start a python ser
 - Fork this repository
 - Clone it: `https://github.com/peace-fool/file-transfer-server.git`
 - Run: `chmod +x up`
-- Move the `up` file to one of the folders in $PATH
+- Move the `up` file to one of the directories in $PATH
    - Example: `sudo mv up \usr\bin\`
 ### Requirements
 - fzf (Fuzzy Finder)
