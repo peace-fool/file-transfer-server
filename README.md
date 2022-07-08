@@ -14,7 +14,7 @@ A simple bash script to easily browse file, generate url, and start a python ser
 - Run `up`
 <img width="578" alt="Screenshot 2022-06-13 at 11 10 51 PM" src="https://user-images.githubusercontent.com/62926115/173412494-62490b96-6fb3-433a-bdbd-56168a6d12b9.png">
 
-- Select the file to share, or use `Ctrl-c` to share the whole directory
+- Select the file to share
 <img width="578" alt="Screenshot 2022-06-13 at 11 13 08 PM" src="https://user-images.githubusercontent.com/62926115/173412849-2344950c-b0db-441c-b0f8-18fb6a87033f.png">
 
 - Copy the URL provided
