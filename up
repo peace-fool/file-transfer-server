@@ -1,7 +1,45 @@
 #!/bin/bash
 
-addr=$(curl -s ifconfig.co)
-file=$(ls | fzf -e) ||  exit
+rm -rf /tmp/up
+case $1 in
+    -g)
+      addr=$(curl -s ifconfig.co)
+      ;;
+    -l)
+      addr=$(hostname -I | awk '{print $1}')
+      ;;
+     ?)
+      echo "script usage: [-l  private/local IP (Default)] [-g  public/external IP]" >&2
+      exit 1
+      ;;
+    *)
+      addr=$(hostname -I | awk '{print $1}')
+      ;;
+esac
 
-echo "http://$addr:8000/$file"
+#addr=$(curl -s ifconfig.co)
+file=$(ls | fzf -e -m) ||  exit
+
+word=$(echo $file | wc -w)
+#echo $word
+
+mkdir /tmp/up
+
+if [ "-t" = "$2" ]; then
+    tar -czf up.tgz $file
+    mv up.tgz /tmp/up/
+    cd /tmp/up
+    echo "http://$addr:8000/up.tgz"
+else
+    #echo "test"
+    cp $file /tmp/up/
+    cd /tmp/up
+    #echo "test"
+    if [ $word != 1 ]; then
+        echo "http://$addr:8000/";
+    else
+        echo "http://$addr:8000/$file";
+    fi
+fi
+
 python3 -m http.server 8000 || python -m SimpleHTTPServer 8000
